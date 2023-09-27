@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://gorco.github.io/pvli2324/otros/ejercicios_dom.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Ejercicios DOM y Canvas</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="./Ejercicios DOM y Canvas_files/docs.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Ejercicios DOM y Canvas</h1>
+</header>
+<p>Realiza estos ejercicios en orden y trata de responder a las
+preguntas que se plantean.</p>
+<p>Recuerda que puedes consultar la documentación (por ejemplo, <a href="http://developer.mozilla.org/">la MDN</a>), realizar búsquedas en
+Internet, etc.</p>
+<p><strong>Importante</strong>: en cada ejercicio se os pedirá que
+creéis un archivo HTML, otro de JavaScript y quizás uno de CSS.
+<strong>Debéis crear archivos nuevos</strong>, y no reutilizar los de
+ejercicios anteriores. Si queréis conservar los archivos de los
+ejercicios, podéis crear un directorio diferente para cada uno.</p>
+<h1 id="ejecutar-javascript-en-el-navegador">Ejecutar JavaScript en el
+navegador</h1>
+<p>Crea un fichero <code>index.html</code> con el siguiente
+contenido:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb1-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb1-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;title&gt;</span>Ejercicios<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb1-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">"utf-8"</span><span class="kw">&gt;</span></span>
+<span id="cb1-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"main.js"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb1-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb1-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb1-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb1-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<p>Crea también <code>main.js</code> (si te fijas, lo incluimos desde el
+fichero HTML con la etiqueta <code class="sourceCode html"><span class="kw">&lt;script&gt;</span></code>)
+con lo siguiente:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Hola, mundo!"</span>)<span class="op">;</span></span></code></pre></div>
+<p>Abre el archivo en el navegador, y verás que aparece en blanco,
+porque el HTML está vacío. Pero si abrimos <strong>la consola del
+navegador</strong>, podremos ver el mensaje que hemos escrito desde el
+archivo JavaScript.</p>
+<p>En Firefox Developer Edition, puedes abrir las herramientas de
+desarrollo con <code>Ctrl + Shift + I</code> (o <code>⌘ + ⌥ + I</code>
+), o bien desde el menú
+<code>Tools / Web Developer / Toggle Tools</code>. Aparecerán varios
+paneles con distintas herramientas, entre ellas, la
+<strong>consola</strong>, que puedes activar haciendo clic en su
+tab.</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/console.png" alt="Consola">
+<figcaption aria-hidden="true">Consola</figcaption>
+</figure>
+<p>Vamos ahora a modificar el HTML dinámicamente para que aparezca texto
+escrito en la pantalla.</p>
+<p>Añade lo siguiente al archivo de JavaScript <code>main.js</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">'&lt;h1&gt;Hola, mundo!&lt;/h1&gt;'</span><span class="op">;</span></span></code></pre></div>
+<p>Prueba a recargar… ¡y sigue la página en blanco! Sin embargo, si
+cambiamos la línea anterior por el siguiente bloque, el problema se
+resuelve:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">window</span><span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () {</span>
+<span id="cb4-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">'&lt;h1&gt;Hola, mundo!&lt;/h1&gt;'</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb4-3" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise01.png" alt="Ejercicio 1 - screenshot">
+<figcaption aria-hidden="true">Ejercicio 1 - screenshot</figcaption>
+</figure>
+<hr>
+<h3 id="ejercicio-1-contesta-a-la-pregunta-por-qué-sucede-esto">–&gt;
+<strong>Ejercicio 1</strong>: Contesta a la pregunta: ¿Por qué sucede
+esto?</h3>
+<p>Recursos:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en/docs/Web/API/GlobalEventHandlers/onload"><code>window.onload</code></a>
+(MDN)</li>
+</ul>
+<h1 id="invocar-a-una-horda-de-gatos">Invocar a una horda de gatos</h1>
+<p>Este ejercicio consiste en crear una imagen al vuelo cuando se pulsa
+un botón, y añadirla a la página.</p>
+<p>Crea un <code>index.html</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb5-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb5-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;title&gt;</span>Ejercicios<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb5-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">"utf-8"</span><span class="kw">&gt;</span></span>
+<span id="cb5-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"main.js"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb5-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb5-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb5-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h1&gt;</span>Fear the horde!<span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb5-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p&gt;&lt;button</span> <span class="er">type</span><span class="ot">=</span><span class="st">"button"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"summon"</span><span class="kw">&gt;</span>Summon cat<span class="kw">&lt;/button&gt;&lt;/p&gt;</span></span>
+<span id="cb5-10"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p</span> <span class="er">id</span><span class="ot">=</span><span class="st">"kittens"</span><span class="kw">&gt;&lt;/p&gt;</span></span>
+<span id="cb5-11"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb5-12"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<p>Ahora <code>main.js</code>. Primero vamos a detectar clicks en el
+botón:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">window</span><span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () {</span>
+<span id="cb6-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> button <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'summon'</span>)<span class="op">;</span></span>
+<span id="cb6-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb6-3" aria-hidden="true" tabindex="-1"></a>    button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> <span class="kw">function</span> () {</span>
+<span id="cb6-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Summon!'</span>)<span class="op">;</span></span>
+<span id="cb6-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb6-5" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb6-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb6-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Ejecuta el código en el navegador, y comprueba que el mensaje de
+<code>Summon!</code> aparece en la consola.</p>
+<p>Una vez que tenemos el evento detectado, vamos a crear una imagen
+dinámicamente y añadirla al DOM para que se vea por pantalla. Reemplaza
+el contenido de la función de callback (la línea que imprimía en la
+consola) por lo siguiente:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> img <span class="op">=</span> <span class="kw">new</span> <span class="fu">Image</span>()<span class="op">;</span></span>
+<span id="cb7-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb7-2" aria-hidden="true" tabindex="-1"></a>img<span class="op">.</span><span class="at">src</span> <span class="op">=</span> <span class="st">'https://placekitten.com/g/200/200/'</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'kittens'</span>)<span class="op">.</span><span class="fu">appendChild</span>(img)<span class="op">;</span></span></code></pre></div>
+<p>Comprueba que se inserta una imagen nueva con cada click en el
+botón:</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise02.png" alt="Invocando gatos">
+<figcaption aria-hidden="true">Invocando gatos</figcaption>
+</figure>
+<hr>
+<h3 id="ejercicio-2-en-vez-de-crear-un-objeto-image-modifica-el-código-para-insertar-html-directamente-como-contenido-del-párrafo-con-id-kittens.">–&gt;
+<strong>Ejercicio 2</strong>: en vez de crear un objeto
+<code>Image</code>, modifica el código para insertar HTML directamente
+como contenido del párrafo con <code>id</code>
+<code>kittens</code>.</h3>
+<p>Recursos:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"><code>Element.innerHTML</code></a>
+(MDN)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a>
+(MDN)</li>
+</ul>
+<p>Consideraciones:</p>
+<ul>
+<li>Recuerda que <code class="sourceCode javascript">innerHTML</code> es
+una propiedad tanto de lectura como de escritura.</li>
+<li>Puedes concatenar <em>strings</em> usando el operador
+<code>+</code>. Ej: <code>'hola, ' + 'mundo'</code>.</li>
+<li>En este caso, usar <code class="sourceCode javascript">Image</code>
+respecto a crear el elemento vía HTML no nos da ninguna ventaja. Se
+suele utilizar <code class="sourceCode javascript">Image</code> cuando
+necesitamos subscribinos a algún elemento de esta (p.ej: <code class="sourceCode javascript">load</code>), o necesitamos acceder a sus
+propiedades vía JavaScript.</li>
+</ul>
+<h1 id="estilos-formularios-y-atributos-personalizados">Estilos,
+formularios y atributos personalizados</h1>
+<p>En este ejercicio vamos a mostrar una lista de personajes y
+utilizaremos un formulario para seleccionar a cual queremos “matar”.
+Además, mostraremos los personajes muertos con una apariencia
+diferente.</p>
+<h2 id="paso-1.-setup">Paso 1. Setup</h2>
+<p>Partiremos del siguiente archivo HTML:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span></span>
+<span id="cb8-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb8-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb8-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;title&gt;</span>Ejercicios<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb8-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">"utf-8"</span><span class="kw">&gt;</span></span>
+<span id="cb8-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"stylesheet"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"styles.css"</span> <span class="er">type</span><span class="ot">=</span><span class="st">"text/css"</span><span class="kw">&gt;</span></span>
+<span id="cb8-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"main.js"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb8-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb8-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb8-10"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h1&gt;</span>Kill monsters<span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb8-11"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;ul</span> <span class="er">id</span><span class="ot">=</span><span class="st">"party-monsters"</span><span class="kw">&gt;</span></span>
+<span id="cb8-12"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/ul&gt;</span></span>
+<span id="cb8-13"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;form</span> <span class="er">name</span><span class="ot">=</span><span class="st">"killing-machine"</span><span class="kw">&gt;</span></span>
+<span id="cb8-14"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;p&gt;</span></span>
+<span id="cb8-15"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-15" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;select</span> <span class="er">name</span><span class="ot">=</span><span class="st">"chara"</span><span class="kw">&gt;&lt;/select&gt;</span></span>
+<span id="cb8-16"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-16" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;button</span> <span class="er">type</span><span class="ot">=</span><span class="st">"submit"</span><span class="kw">&gt;</span>Kill!<span class="kw">&lt;/button&gt;</span></span>
+<span id="cb8-17"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/p&gt;</span></span>
+<span id="cb8-18"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/form&gt;</span></span>
+<span id="cb8-19"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb8-20"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<p>Crearemos además <code>styles.css</code> con lo siguiente:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb9-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.dead</span> {</span>
+<span id="cb9-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-decoration</span>: <span class="dv">line-through</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb9-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="paso-2.-insertar-contenido-dinámicamente">Paso 2. Insertar
+contenido dinámicamente</h2>
+<p>Este paso lo haremos con JavaScript desde un archivo
+<code>main.js</code>. Lo que haremos será rellenar la lista de
+personajes con los datos de una <em>party</em>, así como personalizar el
+control de dropdown del formulario (el <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>)
+para que muestre la lista de personajes también.</p>
+<p>Primero crearemos los datos de la <em>party</em>. Por ejemplo:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> party <span class="op">=</span> [</span>
+<span id="cb10-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">name</span><span class="op">:</span> <span class="st">'Bat'</span><span class="op">,</span> <span class="dt">id</span><span class="op">:</span> <span class="st">'bat1'</span>}<span class="op">,</span></span>
+<span id="cb10-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">name</span><span class="op">:</span> <span class="st">'Slime'</span><span class="op">,</span> <span class="dt">id</span><span class="op">:</span> <span class="st">'slime'</span>}<span class="op">,</span></span>
+<span id="cb10-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb10-4" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">name</span><span class="op">:</span> <span class="st">'Bat'</span><span class="op">,</span> <span class="dt">id</span><span class="op">:</span> <span class="st">'bat2'</span>}</span>
+<span id="cb10-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb10-5" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p>Con esto ya podemos rellenar la lista <code class="sourceCode html"><span class="kw">&lt;ul&gt;</span></code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">window</span><span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () {</span>
+<span id="cb11-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> list <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'party-monsters'</span>)<span class="op">;</span></span>
+<span id="cb11-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    party<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span> (character) {</span>
+<span id="cb11-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> li <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<span id="cb11-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-5" aria-hidden="true" tabindex="-1"></a>        li<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> character<span class="op">.</span><span class="at">name</span> <span class="op">+</span> <span class="st">' (&lt;code&gt;'</span> <span class="op">+</span> character<span class="op">.</span><span class="at">id</span> <span class="op">+</span> <span class="st">'&lt;/code&gt;)'</span><span class="op">;</span></span>
+<span id="cb11-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-6" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">appendChild</span>(li)<span class="op">;</span></span>
+<span id="cb11-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb11-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb11-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Para añadir “líneas” al control de dropdown, <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>,
+debemos utilizar elementos <code class="sourceCode html"><span class="kw">&lt;option&gt;</span></code>.
+El texto contenido en la etiqueta será el mostrado en el menú. Sin
+embargo, para conocer el <em>valor</em> seleccionado, debemos añadir un
+atributo <code class="sourceCode html">name</code> a <code class="sourceCode html"><span class="kw">&lt;option&gt;</span></code>, y
+esa string es la que nos devolverá el elemento <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>
+cuando le preguntemos qué opción tiene seleccionada.</p>
+<p>Este sería el HTML de ejemplo de un <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>
+(no lo copies, es sólo un ejemplo):</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;select</span> <span class="er">name</span><span class="ot">=</span><span class="st">"size"</span><span class="kw">&gt;</span></span>
+<span id="cb12-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;option</span> <span class="er">value</span><span class="ot">=</span><span class="st">"size-s"</span><span class="kw">&gt;</span>Small<span class="kw">&lt;/option&gt;</span></span>
+<span id="cb12-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;option</span> <span class="er">value</span><span class="ot">=</span><span class="st">"size-m"</span><span class="kw">&gt;</span>Medium<span class="kw">&lt;/option&gt;</span></span>
+<span id="cb12-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;option</span> <span class="er">value</span><span class="ot">=</span><span class="st">"size-l"</span><span class="kw">&gt;</span>Large<span class="kw">&lt;/option&gt;</span></span>
+<span id="cb12-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/select&gt;</span></span></code></pre></div>
+<p>Si el usuario seleccionara la opción <code>Medium</code>, el <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>
+nos devolvería el valor <code>size-m</code> cuando le preguntemos por la
+opción seleccionada.</p>
+<p>Ahora que sabemos esto, vamos a generar un <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>
+que contenga los personajes de la <em>party</em>. Utilizaremos el nombre
+como texto a mostrar, y la ID como valor para esa opción.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> select <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'select[name=chara]'</span>)<span class="op">;</span></span>
+<span id="cb13-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb13-2" aria-hidden="true" tabindex="-1"></a>party<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span> (character) {</span>
+<span id="cb13-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> option <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'option'</span>)<span class="op">;</span></span>
+<span id="cb13-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb13-4" aria-hidden="true" tabindex="-1"></a>    option<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> character<span class="op">.</span><span class="at">name</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb13-5" aria-hidden="true" tabindex="-1"></a>    option<span class="op">.</span><span class="at">value</span> <span class="op">=</span> character<span class="op">.</span><span class="at">id</span><span class="op">;</span></span>
+<span id="cb13-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb13-6" aria-hidden="true" tabindex="-1"></a>    select<span class="op">.</span><span class="fu">appendChild</span>(option)<span class="op">;</span></span>
+<span id="cb13-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb13-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Si ejecutas el código, verás lo siguiente:</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise03_step02.png" alt="Ejercicio 3 - paso 2 - screenshot">
+<figcaption aria-hidden="true">Ejercicio 3 - paso 2 -
+screenshot</figcaption>
+</figure>
+<p>Visualmente parece que está todo correcto, pero vamos a comprobar que
+las <code>&lt;option&gt;</code>… tienen efectivamente el <code class="sourceCode html">value</code> que queremos.</p>
+<p>Para ello, haz click con el botón derecho sobre el <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code> y
+selecciona la opción <code>Inspect Element</code> del menú contextual.
+Se abrirán las developer tools (si no estaban abiertas ya) con el
+Inspector como panel activo.</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise03_inspector01.png" alt="Ejercicio 3 - inspector screenshot">
+<figcaption aria-hidden="true">Ejercicio 3 - inspector
+screenshot</figcaption>
+</figure>
+<p>Haz clic en la flecha de la izquierda para desplegar el contenido de
+ese nodo del DOM:</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise03_inspector02.png" alt="Ejercicio 3 - inspector expanded screenshot">
+<figcaption aria-hidden="true">Ejercicio 3 - inspector expanded
+screenshot</figcaption>
+</figure>
+<p>Comprueba que los <code class="sourceCode html">value</code> son los
+correctos.</p>
+<h2 id="paso-3.-interceptar-el-formulario">Paso 3. Interceptar el
+formulario</h2>
+<p>Prueba a seleccionar un personaje y a pulsar el botón de
+<em>Kill</em>. Verás que la página se recarga, pero la URL es un poco
+diferente:</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise03_querystring.png" alt="Ejercicio 3 - querystring">
+<figcaption aria-hidden="true">Ejercicio 3 - querystring</figcaption>
+</figure>
+<p>Lo que ocurre es que se añade un símbolo de interrogación seguido de
+los nombres de campos de formulario que tengamos con sus valores. En
+este caso, vemos <code>chara=slime</code> porque nuestro <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>
+tiene el atributo <code>name</code> a <code>chara</code>, mientras que
+<code>slime</code> es el valor (<code>value</code>) de la opción
+seleccionada.</p>
+<p>A esta cadena (<code>?chara=slime</code>) se la conoce como
+<em>querystring</em>, y sirve para pasar parámetros de request al
+servidor. Nosotros no estamos programando un servidor y únicamente
+queremos obtener el valor del formulario para realizar una acción
+<em>nosotros</em> (el cliente web).</p>
+<p>Esto se soluciona interceptando el evento <code>submit</code> del
+formulario y cancelándolo para que el navegador no realice una nueva
+request al servidor, recargando la página:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> form <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'form[name=killing-machine]'</span>)<span class="op">;</span></span>
+<span id="cb14-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb14-2" aria-hidden="true" tabindex="-1"></a>form<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'submit'</span><span class="op">,</span> <span class="kw">function</span> (<span class="bu">event</span>) {</span>
+<span id="cb14-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb14-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Killed character'</span>)<span class="op">;</span></span>
+<span id="cb14-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb14-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Comprueba que el botón ahora no recarga la página, sino que imprime
+un mensaje por consola.</p>
+<p>Vamos ahora a sacar la ID del personaje consultando qué valor tiene
+el <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>
+seleccionado. Para ello, simplemente tenemos que acceder a su propiedad
+<code>value</code>. Cambia el callback de <code>submit</code> por lo
+siguiente:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb15-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> charaID <span class="op">=</span> form<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'[name=chara]'</span>)<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
+<span id="cb15-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Killed character:'</span><span class="op">,</span> charaID)<span class="op">;</span></span></code></pre></div>
+<p>Comprueba en la consola que la ID es diferente según la opción que se
+seleccione.</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise03_selected_value.png" alt="Ejercicio 3 - valor de select">
+<figcaption aria-hidden="true">Ejercicio 3 - valor de
+select</figcaption>
+</figure>
+<h2 id="paso-4.-atributos-data-para-mapear-elementos">Paso 4. Atributos
+data para mapear elementos</h2>
+<p>En este paso, añadiremos una clase CSS al elemento de la lista que
+corresponda cuando matemos a un personaje. Así, lo marcaremos como
+muerto.</p>
+<p>¿Cómo podemos hacer para relacionar el valor seleccionado con otro
+nodo HTML?</p>
+<p>Podríamos añadir un atributo ID a los elementos de la lista y luego
+utilizar <code class="sourceCode javascript">getElementById</code> para
+seleccionar ese elemento y manipularlo. El problema es que <strong>las
+ID’s tienen que ser únicas</strong>. Para este ejemplo nos valdría,
+¿pero qué pasa si necesitamos renderizar esa misma party en otra parte
+de la página?</p>
+<p>La solución es <em>inventarnos</em> un <strong>atributo HTML a
+nuestra elección</strong> y guardar ahí la ID del personaje (¡o
+cualquier otro valor que queramos!). Podemos añadir uno o más atributos
+personalizados a cualquier etiqueta HTML, el único requisito es que
+tengan el <strong>prefijo <code>data-</code></strong>. Tendríamos así
+elementos renderizados de esta manera:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;li</span> <span class="er">data-charaid</span><span class="ot">=</span><span class="st">"bat1"</span><span class="kw">&gt;</span>...<span class="kw">&lt;/li&gt;</span></span></code></pre></div>
+<p>Así, podríamos acceder a este elemento utilizando <code class="sourceCode javascript"><span class="fu">querySelector</span>(<span class="st">'[data-chara-id=bat1]'</span>)</code>,
+por ejemplo.</p>
+<p>Estos atributos se llaman <em>data attributes</em>. Podemos acceder a
+ellos desde JavaScript con la propiedad <code>dataset</code>, que
+contiene un mapa en la que los nombre de los atributos (<em>sin</em> el
+prefijo <code>data-</code>) son las <em>keys</em>. En este ejemplo,
+<code>li.dataset.charaid</code> nos devolvería <code>bat1</code>
+(asumiendo que <code>li</code> es el elemento <code>&lt;li&gt;</code>
+que queremos).</p>
+<p>Primero debemos añadir este atributo data cuando rellenamos la
+lista:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> li <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<span id="cb17-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb17-2" aria-hidden="true" tabindex="-1"></a>li<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> character<span class="op">.</span><span class="at">name</span> <span class="op">+</span> <span class="st">' (&lt;code&gt;'</span> <span class="op">+</span> character<span class="op">.</span><span class="at">id</span> <span class="op">+</span> <span class="st">'&lt;/code&gt;)'</span><span class="op">;</span></span>
+<span id="cb17-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb17-3" aria-hidden="true" tabindex="-1"></a>li<span class="op">.</span><span class="at">dataset</span><span class="op">.</span><span class="at">charaid</span> <span class="op">=</span> character<span class="op">.</span><span class="at">id</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb17-4" aria-hidden="true" tabindex="-1"></a>list<span class="op">.</span><span class="fu">appendChild</span>(li)<span class="op">;</span></span></code></pre></div>
+<p>Puedes comprobar que el atributo está puesto correctamente usando el
+inspector:</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise03_inspector_data_attr.png" alt="Inspeccionando el atributo data">
+<figcaption aria-hidden="true">Inspeccionando el atributo
+data</figcaption>
+</figure>
+<p>Ahora modifica el callback de <code>submit</code> del siguiente
+modo:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb18-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> charaID <span class="op">=</span> form<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'[name=chara]'</span>)<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> li <span class="op">=</span> list<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'[data-charaid='</span> <span class="op">+</span> charaID <span class="op">+</span> <span class="st">']'</span>)<span class="op">;</span></span>
+<span id="cb18-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb18-4" aria-hidden="true" tabindex="-1"></a>li<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">add</span>(<span class="st">'dead'</span>)<span class="op">;</span></span></code></pre></div>
+<p>Con esto, cada vez que se pulse el botón se añade la clase CSS
+<code>dead</code> al elemnto <code class="sourceCode html"><span class="kw">&lt;li&gt;</span></code> que
+contenga el personaje seleccionado. En el archivo CSS
+<code>styles.css</code> hemos creado antes una regla que muestra a los
+elementos con clase <code>dead</code> con el texto tachado:</p>
+<figure>
+<img src="./Ejercicios DOM y Canvas_files/exercise03_strikethrough.png" alt="Ejercicio 3 - clase CSS">
+<figcaption aria-hidden="true">Ejercicio 3 - clase CSS</figcaption>
+</figure>
+<hr>
+<h3 id="ejercicio-3-prueba-a-desactivar-el-botón-de-kill-si-la-opción-seleccionada-del-select-es-un-personaje-que-ya-está-muerto.">–&gt;
+<strong>Ejercicio 3</strong>: prueba a desactivar el botón de kill si la
+opción seleccionada del <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code> es
+un personaje que ya está muerto.</h3>
+<ul>
+<li>Desactiva el botón nada más matar al personaje, poniendo la
+propiedad <code>disabled</code> de <code class="sourceCode html"><span class="kw">&lt;button&gt;</span></code> a
+<code>true</code>.</li>
+<li>Subscríbete al evento <code>change</code> de <code class="sourceCode html"><span class="kw">&lt;select&gt;</span></code>,
+que se dispara cuando el valor seleccionado cambia.
+<ol type="1">
+<li>Averigua si el <code class="sourceCode html"><span class="kw">&lt;li&gt;</span></code> del
+personaje correspondiente tiene la clase <code>dead</code>. Para ello,
+utiliza el método adecuado de la <a href="https://developer.mozilla.org/en/docs/Web/API/Element/classList">propiedad
+<code>classList</code></a>.</li>
+<li>Cambia la propiedad <code>disabled</code> de <code class="sourceCode html"><span class="kw">&lt;button&gt;</span></code> en
+función de si el personaje está vivo todavía o muerto.</li>
+</ol></li>
+</ul>
+<p>Recursos:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"><code class="sourceCode javascript"><span class="bu">Event</span><span class="op">.</span><span class="at">preventDefault</span></code></a>
+(MDN)</li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/Using_data_attributes">Using
+data attributes</a> (MDN)</li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/API/Element/classList"><code class="sourceCode javascript"><span class="bu">Element</span><span class="op">.</span><span class="at">classList</span></code></a>
+(MDN)</li>
+</ul>
+<p>Notas:</p>
+<ul>
+<li>Podemos usar <code class="sourceCode javascript">querySelector</code> sobre cualquier
+elemento del DOM, no sólo sobre <code class="sourceCode javascript"><span class="bu">document</span></code>.
+En este caso, limitaremos la búsqueda sólo a sus hijos.</li>
+</ul>
+<h1 id="estado-de-la-party">Estado de la <em>party</em></h1>
+<p>Vamos a pintar ahora el estado de la <em>party</em> de la práctica
+anterior en un <code class="sourceCode html"><span class="kw">&lt;canvas&gt;</span></code>.</p>
+<h2 id="paso-1.-adapta-el-ejercicio-anterior">Paso 1. Adapta el
+ejercicio anterior</h2>
+<p>Modifica tu fichero HTML para cambiar el título, el texto del botón e
+incluir un elemento <code class="sourceCode html"><span class="kw">&lt;canvas&gt;</span></code>
+como se muestra a continuación:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb19-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span></span>
+<span id="cb19-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb19-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb19-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;title&gt;</span>Ejercicios<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb19-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">"utf-8"</span><span class="kw">&gt;</span></span>
+<span id="cb19-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"stylesheet"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"styles.css"</span> <span class="er">type</span><span class="ot">=</span><span class="st">"text/css"</span><span class="kw">&gt;</span></span>
+<span id="cb19-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"main.js"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb19-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb19-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb19-10"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- ¡Cambia el título! Vamos a matar a los monstruos, pero despacito. --&gt;</span></span>
+<span id="cb19-11"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h1&gt;</span>Attack the monsters!<span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb19-12"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;canvas</span> <span class="er">width</span><span class="ot">=</span><span class="st">"800"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"600"</span><span class="kw">&gt;&lt;/canvas&gt;</span></span>
+<span id="cb19-13"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;ul</span> <span class="er">id</span><span class="ot">=</span><span class="st">"party-monsters"</span><span class="kw">&gt;</span></span>
+<span id="cb19-14"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/ul&gt;</span></span>
+<span id="cb19-15"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;form</span> <span class="er">name</span><span class="ot">=</span><span class="st">"killing-machine"</span><span class="kw">&gt;</span></span>
+<span id="cb19-16"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;p&gt;</span></span>
+<span id="cb19-17"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-17" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;select</span> <span class="er">name</span><span class="ot">=</span><span class="st">"chara"</span><span class="kw">&gt;&lt;/select&gt;</span></span>
+<span id="cb19-18"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-18" aria-hidden="true" tabindex="-1"></a>            <span class="co">&lt;!-- También hemos cambiado el texto del botón. --&gt;</span></span>
+<span id="cb19-19"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-19" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;button</span> <span class="er">type</span><span class="ot">=</span><span class="st">"submit"</span><span class="kw">&gt;</span>Hit!<span class="kw">&lt;/button&gt;</span></span>
+<span id="cb19-20"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-20" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/p&gt;</span></span>
+<span id="cb19-21"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/form&gt;</span></span>
+<span id="cb19-22"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;section</span> <span class="er">class</span><span class="ot">=</span><span class="st">"resources"</span><span class="kw">&gt;</span></span>
+<span id="cb19-23"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-23" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;img</span> <span class="er">id</span><span class="ot">=</span><span class="st">"background"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Fields_at_Crossgates_(geograph_3096445).jpg/800px-Fields_at_Crossgates_(geograph_3096445).jpg"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"background"</span> <span class="kw">/&gt;</span></span>
+<span id="cb19-24"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/section&gt;</span></span>
+<span id="cb19-25"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb19-26"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<p>Modifica el fichero CSS también para añadir la siguiente regla y
+ocultar las imágenes:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb20-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.resources</span> {</span>
+<span id="cb20-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span>: <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb20-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb20-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Y finalmente, abre el fichero <code>main.js</code> y modifica la
+<em>party</em> para incluir los puntos de vida:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> party <span class="op">=</span> [</span>
+<span id="cb21-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb21-2" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">name</span><span class="op">:</span> <span class="st">'Bat'</span><span class="op">,</span> <span class="dt">id</span><span class="op">:</span> <span class="st">'bat1'</span><span class="op">,</span> <span class="dt">hp</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">maxHp</span><span class="op">:</span> <span class="dv">20</span>}<span class="op">,</span></span>
+<span id="cb21-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">name</span><span class="op">:</span> <span class="st">'Slime'</span><span class="op">,</span> <span class="dt">id</span><span class="op">:</span> <span class="st">'slime'</span><span class="op">,</span> <span class="dt">hp</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">maxHp</span><span class="op">:</span> <span class="dv">50</span>}<span class="op">,</span></span>
+<span id="cb21-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">name</span><span class="op">:</span> <span class="st">'Bat'</span><span class="op">,</span> <span class="dt">id</span><span class="op">:</span> <span class="st">'bat2'</span><span class="op">,</span> <span class="dt">hp</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">maxHp</span><span class="op">:</span> <span class="dv">20</span>}</span>
+<span id="cb21-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb21-5" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p>Modifica el método submit de la siguiente forma para que en vez de
+matar directamente, dirija un ataque contra el enemigo de 5 puntos de
+vida:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb22-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> charaID <span class="op">=</span> form<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'[name=chara]'</span>)<span class="op">.</span><span class="at">value</span><span class="op">;</span></span>
+<span id="cb22-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> character <span class="op">=</span> <span class="fu">findCharById</span>(charaID)<span class="op">;</span></span>
+<span id="cb22-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-4" aria-hidden="true" tabindex="-1"></a>character<span class="op">.</span><span class="at">hp</span> <span class="op">-=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb22-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (character<span class="op">.</span><span class="at">hp</span> <span class="op">&lt;=</span> <span class="dv">0</span>) {</span>
+<span id="cb22-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  character<span class="op">.</span><span class="at">hp</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// corrige el valor en caso de que sea negativo.</span></span>
+<span id="cb22-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> li <span class="op">=</span> list<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'[data-charaid='</span> <span class="op">+</span> charaID <span class="op">+</span> <span class="st">']'</span>)<span class="op">;</span></span>
+<span id="cb22-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  li<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">add</span>(<span class="st">'dead'</span>)<span class="op">;</span></span>
+<span id="cb22-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb22-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>La función <code>findCharById</code> luce así:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb23-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">findCharById</span>(charaID) {</span>
+<span id="cb23-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb23-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> party<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span> (char) { <span class="cf">return</span> char<span class="op">.</span><span class="at">id</span> <span class="op">===</span> charaID<span class="op">;</span> })[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb23-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb23-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Ahora necesitarás más de un click para acabar con un enemigo. Puedes
+usar el depurador para ver cómo los enemigos pierden vida a cada
+click.</p>
+<h2 id="paso-2.-el-bucle-de-renderizado">Paso 2. El bucle de
+renderizado</h2>
+<p>Lo que vamos a hacer ahora es implementar un bucle de renderizado muy
+sencillo. Como explicamos en clase, no podemos hacer algo como:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb24-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb24-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">renderParty</span>()<span class="op">;</span></span>
+<span id="cb24-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb24-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Porque bloquearíamos el hilo principal y dejaríamos la página
+inutilizada. Lo que tenemos que hacer es programar un renderizado a cada
+frame utilizando <code class="sourceCode javascript">requestAnimationFrame</code>. Dentro de la
+función <code class="sourceCode javascript">onload</code> añade lo
+siguiente:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb25-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lastRender <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> canvas <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'canvas'</span>)<span class="op">;</span></span>
+<span id="cb25-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> context <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getContext</span>(<span class="st">'2d'</span>)<span class="op">;</span></span>
+<span id="cb25-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">render</span>() {</span>
+<span id="cb25-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">requestAnimationFrame</span>(<span class="kw">function</span> (t) {</span>
+<span id="cb25-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Borra todo...</span></span>
+<span id="cb25-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-8" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="fu">clearRect</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">800</span><span class="op">,</span> <span class="dv">600</span>)<span class="op">;</span></span>
+<span id="cb25-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...y repinta.</span></span>
+<span id="cb25-10"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">renderParty</span>(t)<span class="op">;</span></span>
+<span id="cb25-11"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Delta time:'</span><span class="op">,</span> t <span class="op">-</span> lastRender)<span class="op">;</span></span>
+<span id="cb25-12"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-12" aria-hidden="true" tabindex="-1"></a>    lastRender <span class="op">=</span> t<span class="op">;</span></span>
+<span id="cb25-13"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>()<span class="op">;</span></span>
+<span id="cb25-14"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-14" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb25-15"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-16"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">renderParty</span>(t) {</span>
+<span id="cb25-18"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Pintando la party en tiempo'</span><span class="op">,</span> t)<span class="op">;</span></span>
+<span id="cb25-19"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-20"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span>()<span class="op">;</span></span></code></pre></div>
+<p>Observa la salida por consola. <strong>¿Qué representa la cantidad
+impresa?</strong></p>
+<h2 id="paso-3.-pintar-el-fondo">Paso 3. Pintar el fondo</h2>
+<p>Vamos a esbozar en qué consiste pintar la party. Eso es fácil. Cambia
+el código de <code class="sourceCode javascript">renderParty</code> para
+que sea:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb26-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">renderParty</span>(t) {</span>
+<span id="cb26-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">renderBackground</span>()<span class="op">;</span></span>
+<span id="cb26-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">renderCharacters</span>(t)<span class="op">;</span> <span class="co">// pásale t a la función que pinta los enemigos.</span></span>
+<span id="cb26-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">renderUI</span>()<span class="op">;</span></span>
+<span id="cb26-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb26-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bgImage <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'background'</span>)<span class="op">;</span></span>
+<span id="cb26-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">renderBackground</span>() {</span>
+<span id="cb26-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Puntando el fondo.'</span>)<span class="op">;</span></span>
+<span id="cb26-10"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb26-11"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">renderCharacters</span>(t) {</span>
+<span id="cb26-13"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Pintando a los personajes.'</span>)<span class="op">;</span></span>
+<span id="cb26-14"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb26-15"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">renderUI</span>() {</span>
+<span id="cb26-17"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-17" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Pintando la interfaz.'</span>)<span class="op">;</span></span>
+<span id="cb26-18"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb26-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Nota</strong>: mucho ojo con utilizar <code class="sourceCode javascript"><span class="bu">console</span><span class="op">.</span><span class="fu">log</span></code>
+dentro de las funciones de render. Hacer esto 60 veces por segundo puede
+degradar el rendimiento de vuestra aplicación si tenéis las herramientas
+de desarrollador abiertas.</p>
+<p>Ahora vamos a pintar el fondo. Cambia la función <code class="sourceCode javascript">renderBackground</code> para que sólo
+incluya el siguiente código:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb27-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb27-1" aria-hidden="true" tabindex="-1"></a>context<span class="op">.</span><span class="fu">drawImage</span>(bgImage<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)</span></code></pre></div>
+<h2 id="paso-4.-pintar-los-enemigos">Paso 4. Pintar los enemigos</h2>
+<p>Pintaremos los enemigos con primitivas gráficas. El slime será un
+círculo verde y el murciélago un círculo azul. Si alguno de los
+personajes está muerto, lo pintaremos en gris. Borra el log y modifica
+la función <code class="sourceCode javascript">renderCharacters</code>
+para que incluya:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb28-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> charaSpace <span class="op">=</span> <span class="dv">800</span> <span class="op">/</span> party<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb28-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> centerOffset <span class="op">=</span> charaSpace <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb28-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-3" aria-hidden="true" tabindex="-1"></a>party<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span> (char<span class="op">,</span> index) {</span>
+<span id="cb28-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> x <span class="op">=</span> index <span class="op">*</span> charaSpace <span class="op">+</span> centerOffset<span class="op">;</span></span>
+<span id="cb28-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> y<span class="op">;</span></span>
+<span id="cb28-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (char<span class="op">.</span><span class="at">hp</span> <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb28-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="at">fillStyle</span> <span class="op">=</span> <span class="st">'grey'</span><span class="op">;</span></span>
+<span id="cb28-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-8" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="dv">500</span><span class="op">;</span> <span class="co">// en el suelo porque está muerto.</span></span>
+<span id="cb28-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (char<span class="op">.</span><span class="at">name</span> <span class="op">===</span> <span class="st">'Bat'</span>) {</span>
+<span id="cb28-10"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-10" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="at">fillStyle</span> <span class="op">=</span> <span class="st">'blue'</span><span class="op">;</span></span>
+<span id="cb28-11"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-11" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="dv">50</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(t<span class="op">/</span><span class="dv">100</span>) <span class="op">+</span> <span class="dv">300</span><span class="op">;</span> <span class="co">// flotando en el aire.</span></span>
+<span id="cb28-12"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-12" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (char<span class="op">.</span><span class="at">name</span> <span class="op">===</span> <span class="st">'Slime'</span>) {</span>
+<span id="cb28-13"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-13" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="at">fillStyle</span> <span class="op">=</span> <span class="st">'green'</span><span class="op">;</span></span>
+<span id="cb28-14"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-14" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="dv">400</span><span class="op">;</span> <span class="co">// en el suelo pero no en la tumba.</span></span>
+<span id="cb28-15"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb28-16"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-16" aria-hidden="true" tabindex="-1"></a>  context<span class="op">.</span><span class="fu">beginPath</span>()<span class="op">;</span></span>
+<span id="cb28-17"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-17" aria-hidden="true" tabindex="-1"></a>  context<span class="op">.</span><span class="fu">arc</span>(x<span class="op">,</span> y<span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>)<span class="op">;</span></span>
+<span id="cb28-18"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-18" aria-hidden="true" tabindex="-1"></a>  context<span class="op">.</span><span class="fu">fill</span>()<span class="op">;</span></span>
+<span id="cb28-19"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb28-19" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Puedes mejorar estas estupendas representaciones de los enemigos al
+término de esta sesión de ejercicios.</p>
+<h2 id="paso-5.-pintar-la-ui">Paso 5. Pintar la UI</h2>
+<p>Falta pintar unas barras de vida justo debajo de cada enemigo. Para
+ello, reemplaza el contenido de la función <code class="sourceCode javascript">renderUI</code> por el siguiente:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb29-1"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> width <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb29-2"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> semiWidth <span class="op">=</span> width <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb29-3"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> height <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb29-4"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> semiHeight <span class="op">=</span> height <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb29-5"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> charaSpace <span class="op">=</span> <span class="dv">800</span> <span class="op">/</span> party<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb29-6"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> centerOffset <span class="op">=</span> charaSpace <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb29-7"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-7" aria-hidden="true" tabindex="-1"></a>party<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span> (char<span class="op">,</span> index) {</span>
+<span id="cb29-8"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> x <span class="op">=</span> index <span class="op">*</span> charaSpace <span class="op">+</span> centerOffset<span class="op">;</span></span>
+<span id="cb29-9"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> y <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb29-10"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (char<span class="op">.</span><span class="at">hp</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb29-11"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> lifeArea <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(char<span class="op">.</span><span class="at">hp</span> <span class="op">/</span> char<span class="op">.</span><span class="at">maxHp</span> <span class="op">*</span> width)<span class="op">;</span></span>
+<span id="cb29-12"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-12" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="at">fillStyle</span> <span class="op">=</span> <span class="st">'red'</span><span class="op">;</span></span>
+<span id="cb29-13"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-13" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="fu">fillRect</span>(x <span class="op">-</span> semiWidth<span class="op">,</span> y <span class="op">-</span> semiHeight<span class="op">,</span> lifeArea<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb29-14"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-14" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="at">lineWidth</span> <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb29-15"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-15" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="at">strokeStyle</span> <span class="op">=</span> <span class="st">'black'</span><span class="op">;</span></span>
+<span id="cb29-16"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-16" aria-hidden="true" tabindex="-1"></a>    context<span class="op">.</span><span class="fu">strokeRect</span>(x <span class="op">-</span> semiWidth<span class="op">,</span> y <span class="op">-</span> semiHeight<span class="op">,</span> width<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb29-17"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb29-18"><a href="https://gorco.github.io/pvli2324/otros/ejercicios_dom.html#cb29-18" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<hr>
+<h3 id="ejercicio-4-modifica-los-hp-de-la-lista-party-para-que-estén-al-máximo-y-haz-que-cuando-reciban-un-golpe-la-barra-se-anime-hasta-el-nuevo-valor.">–&gt;
+<strong>Ejercicio 4</strong>: modifica los <code>hp</code> de la lista
+<code>party</code> para que estén al máximo y haz que cuando reciban un
+golpe la barra se anime hasta el nuevo valor.</h3>
+<p>Ejemplo comparativo de la barra con animación y sin animación:</p>
+<p><img src="./Ejercicios DOM y Canvas_files/smooth.gif" alt="Con Animación"> <img src="./Ejercicios DOM y Canvas_files/nosmooth.gif" alt="Sin Animación"></p>
+<h1 id="recursos">Recursos</h1>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"><code class="sourceCode javascript">requestAnimationFrame</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect"><code class="sourceCode javascript"><span class="bu">CanvasRenderingContext2D</span><span class="op">.</span><span class="at">clearRect</span></code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect"><code class="sourceCode javascript"><span class="bu">CanvasRenderingContext2D</span><span class="op">.</span><span class="at">fillRect</span></code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle"><code class="sourceCode javascript"><span class="bu">CanvasRenderingContext2D</span><span class="op">.</span><span class="at">fillStyle</span></code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeRect"><code class="sourceCode javascript"><span class="bu">CanvasRenderingContext2D</span><span class="op">.</span><span class="at">strokeRect</span></code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle"><code class="sourceCode javascript"><span class="bu">CanvasRenderingContext2D</span><span class="op">.</span><span class="at">strokeStyle</span></code></a></li>
+</ul>
+
+
+<div style="background-color: black; position: fixed; width: 100%; height: 100%; opacity: 0; top: 0px; left: 0px; pointer-events: none; z-index: 2147483647;"></div></body></html>
