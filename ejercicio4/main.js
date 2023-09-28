@@ -105,7 +105,7 @@ window.onload = function () {
     var character = findCharById(charaID);
     let damage = 5;
     let i = 0;
-    function callback() {
+    function callback() { // bucle: frame por unidad de daño
       character.hp--;
       i++;
       if (i < damage) {
