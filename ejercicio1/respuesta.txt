@@ -1,0 +1,7 @@
+–> Ejercicio 1: Contesta a la pregunta: ¿Por qué sucede esto?
+Al cargar la página, el "var button" identifica el botón con id "summon".
+Cada vez que clicamos este botón, su función de escucha añade al párrafo 
+marcado con el identificador "kittens" una nueva imagen desde la ruta de
+placekitten.com/g/200/200/, una misma imagen de 200 x 200 píxeles. Cada 
+vez que lo pulsamos reaparece la misma y se van acumulando como hijos al 
+párrafo.
