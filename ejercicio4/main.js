@@ -104,9 +104,9 @@ window.onload = function () {
         var character = findCharById(charaID);
         character.hp -= 5;
         if (character.hp <= 0) {
-        character.hp = 0; // corrige el valor en caso de que sea negativo.
-        var li = list.querySelector('[data-charaid=' + charaID + ']');
-        li.classList.add('dead');
+          character.hp = 0; // corrige el valor en caso de que sea negativo.
+          var li = list.querySelector('[data-charaid=' + charaID + ']');
+          li.classList.add('dead');
         }
     });
 };

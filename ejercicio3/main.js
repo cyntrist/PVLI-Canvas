@@ -97,16 +97,16 @@ window.onload = function () {
         return party.filter(function (char) { return char.id === charaID; })[0];
     }   
     
-    var form = document.querySelector('form[name=killing-machine]');
+    var form = document.querySelector('form[name=killing-machine]'); 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         var charaID = form.querySelector('[name=chara]').value;
         var character = findCharById(charaID);
         character.hp -= 5;
         if (character.hp <= 0) {
-        character.hp = 0; // corrige el valor en caso de que sea negativo.
-        var li = list.querySelector('[data-charaid=' + charaID + ']');
-        li.classList.add('dead');
+            character.hp = 0; // corrige el valor en caso de que sea negativo.
+            var li = list.querySelector('[data-charaid=' + charaID + ']');
+            li.classList.add('dead');
         }
     });
 };
