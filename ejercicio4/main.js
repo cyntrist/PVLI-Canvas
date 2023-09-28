@@ -103,7 +103,16 @@ window.onload = function () {
     event.preventDefault();
     var charaID = form.querySelector('[name=chara]').value;
     var character = findCharById(charaID);
-    character.hp -= 5;
+    let damage = 5;
+    let i = 0;
+    function callback() {
+      character.hp--;
+      i++;
+      if (i < damage) {
+        window.requestAnimationFrame(callback);
+      }
+    }
+    window.requestAnimationFrame(callback);
     if (character.hp <= 0) {
       character.hp = 0; // corrige el valor en caso de que sea negativo.
       var li = list.querySelector('[data-charaid=' + charaID + ']');
