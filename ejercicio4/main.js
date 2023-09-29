@@ -174,8 +174,7 @@ window.onload = function () {
     button.classList.add("fade");
   });
 
-  function textoAlerta()
-  {
+  function textoAlerta() {
     return "¡¡¡CUI CUI CUI CUI CUI!!! \n(Nobody expects the Cuinquisition!) ";
   }
 
