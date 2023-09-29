@@ -119,4 +119,17 @@ window.onload = function () {
       li.classList.add('dead');
     }
   });
+  
+  const button = document.querySelector("#button");
+  const audio = document.querySelector("audio");
+  
+  button.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.volume = 0.5;
+      audio.play();
+    } else {
+      audio.pause();
+    }
+    button.classList.add("fade");
+  });
 };

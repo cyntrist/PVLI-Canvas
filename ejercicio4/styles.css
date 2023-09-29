@@ -5,3 +5,11 @@
 .resources {
     display: none;
 }
+
+#party-monsters {
+    list-style-type: none;
+}
+
+body { 
+    text-align: center 
+}
