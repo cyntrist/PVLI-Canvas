@@ -5,6 +5,10 @@
 
 html {
     font-family: 'Lato';
+    background-image: url('BG/battleback10.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 button {
@@ -25,6 +29,9 @@ button {
     align-content: center;
     align-self: center;
     text-align: center;
+    margin:0px; 
+    padding:0px;
+    padding-top: 10px;
 }
 
 body { 
@@ -33,4 +40,6 @@ body {
 
 h1 {
     font-weight: bolder;
+    color: whitesmoke;
+    background-color:coral;
 }

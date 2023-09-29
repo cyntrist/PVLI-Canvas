@@ -136,15 +136,18 @@ window.onload = function () {
     var character = findCharById(charaID);
     let damage = 5;
     let i = 0;
-    if (character.hp <= 0) {
-      character.hp = 0; // corrige el valor en caso de que sea negativo.
-      var li = list.querySelector('[data-charaid=' + charaID + ']');
-      li.classList.add('dead');
-    }
-    else {
+
+    if (character.hp > 0) {
       function callback() { // bucle: frame por unidad de daño
         character.hp--;
         i++;
+
+        if (character.hp <= 0) {
+          character.hp = 0; // corrige el valor en caso de que sea negativo.
+          var li = list.querySelector('[data-charaid=' + charaID + ']');
+          li.classList.add('dead');
+        }
+
         if (i < damage) {
           window.requestAnimationFrame(callback);
         }
