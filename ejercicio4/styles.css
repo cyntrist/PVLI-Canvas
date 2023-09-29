@@ -21,8 +21,16 @@ button {
 
 #party-monsters {
     list-style-type: none;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
 }
 
 body { 
     text-align: center 
+}
+
+h1 {
+    font-weight: bolder;
 }
