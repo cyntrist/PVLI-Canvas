@@ -1,3 +1,16 @@
+@font-face {
+    font-family: "Lato";
+    src: url('font.ttf');
+}
+
+html {
+    font-family: 'Lato';
+}
+
+button {
+    font-family: inherit;
+}
+
 .dead {
     text-decoration: line-through;
 }   
