@@ -40,13 +40,13 @@ window.onload = function () {
       var y;
       let radio = 50;
 
-      if (char.hp === 0) {
-        context.fillStyle = 'grey';
-        y = 500; // en el suelo porque está muerto.
-      } else if (char.name === 'Bat') {
+      if (char.name === 'Bat') {
         context.fillStyle = 'blue';
-        //y = 400;
         y = 50 * Math.sin(t/100) + 300; // flotando en el aire.
+        if (char.hp === 0) {
+          context.fillStyle = 'grey';
+          y = 500; // en el suelo porque está muerto.
+        }
 
         radio = 40 // alas
         context.beginPath();
@@ -60,6 +60,10 @@ window.onload = function () {
       } else if (char.name === 'Slime') {
         context.fillStyle = 'green';
         y = 400; // en el suelo pero no en la tumba.
+        if (char.hp === 0) {
+          context.fillStyle = 'grey';
+          y = 500; // en el suelo porque está muerto.
+        }
 
         context.beginPath(); // ...pies?
         context.moveTo(x + 30, y - 40);
@@ -67,14 +71,15 @@ window.onload = function () {
         context.lineTo(x - 70, y + 50);
         context.lineTo(x + 70, y + 50);
         context.fill();
-
       }
 
-      context.beginPath();
+      context.beginPath(); // cuerpo 
       context.arc(x, y, radio, 0, 2 * Math.PI);
       context.fill();
 
       context.fillStyle = "red"; // ojos
+      if (char.hp <= 0) 
+        context.fillStyle = "black";
       context.beginPath();
       context.ellipse(x - 10, y, 10, 5, Math.PI / 2, 0, 2 * Math.PI);
       context.fill();
@@ -167,5 +172,15 @@ window.onload = function () {
       audio.pause();
     }
     button.classList.add("fade");
+  });
+
+  function textoAlerta()
+  {
+    return "¡¡¡CUI CUI CUI CUI CUI!!! \n(Nobody expects the Cuinquisition!) ";
+  }
+
+  const div = document.querySelector("#masca");
+  div.addEventListener("click", function(event) {
+    alert(textoAlerta());
   });
 };
