@@ -19,12 +19,8 @@ window.onload = function () {
         event.preventDefault();
         var charaID = form.querySelector('[name=chara]').value;
         var li = list.querySelector('[data-charaid=' + charaID + ']');
-        if (li.classList.contains('dead')) {
-            but.disabled = true;
-        }
-        else {
-            but.disabled = false;
-        }
+        if (li.classList.contains('dead')) but.disabled = true;
+        else but.disabled = false;
     });
 
     party.forEach(function (character) {
